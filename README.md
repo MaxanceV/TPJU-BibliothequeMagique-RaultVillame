@@ -26,3 +26,5 @@ Toutes les méthodes (Enchantement, Collaboration Magicien-Livre) ont été test
 * **Justine Rault**
 * **Université Paris Dauphine | PSL**
 * Date : 16/12/2025
+
+* Généré par l'IA Gimini

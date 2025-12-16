@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Magicien
+comment1.params=unNom
+comment1.target=Magicien(java.lang.String)
+comment2.params=livre
+comment2.target=void\ prendreLivre(LivreMagique)
+comment3.params=
+comment3.target=int\ calculerPuissanceSort()
+numComments=4

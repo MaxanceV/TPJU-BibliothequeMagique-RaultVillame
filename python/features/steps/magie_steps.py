@@ -26,4 +26,4 @@ def step_impl(context):
 
 @then('le livre doit posséder {resultat:d} points de magie')
 def step_impl(context, resultat):
-    assert context.livre.get_points_de_magie == resultat
+    assert context.livre.points_de_magie == resultat

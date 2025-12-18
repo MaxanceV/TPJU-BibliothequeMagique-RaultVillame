@@ -18,7 +18,7 @@ def step_impl(context, nom):
 
 @then('sa puissance de sort doit être de {total:d}')
 def step_impl(context, total):
-    assert context.magicien.puissance_totale == total
+    assert context.magicien.calculer_puissance_totale() == total
 
 @when('un magicien enchante le livre')
 def step_impl(context):

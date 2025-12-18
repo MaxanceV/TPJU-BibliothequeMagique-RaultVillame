@@ -15,7 +15,7 @@ Le dépôt est organisé pour refléter la transition entre les deux semestres d
 
 ## 📖 Tutoriel de Référence
 Pour comprendre la progression du projet, veuillez consulter la dernière version du document située à la racine : 
-👉 **`Tutoriel Agilité 1 V2.1.pdf`**
+👉 **`Tutoriel Agilité 1 V3.0.pdf`**
 
 ### Sommaire des points abordés :
 1.  **Fondamentaux POO** : Création de classes et méthodes sous BlueJ.
@@ -40,4 +40,4 @@ Ce projet a bénéficié de la collaboration de **Gemini**, agissant en tant que
 ---
 **Auteurs :** Maxance Villame & Justine Rault 
 **Université Paris Dauphine | PSL**
-**Date :** 16/12/2025
+**Date :** 18/12/2025

@@ -1,30 +1,43 @@
-# 📚 La Bibliothèque des Arcanes - Projet Agilité
+# 📚 Bibliothèque Magique - Projet Agilité
 
-Bienvenue dans la **Bibliothèque des Arcanes** ! Ce projet est une expérimentation des concepts de la Programmation Orientée Objet (POO) à travers le développement d'un système de gestion de grimoires vivants.
+Ce dépôt retrace l'évolution d'un système de gestion de grimoires magiques, passant d'une initiation sous **Java/BlueJ** à un environnement professionnel en **Python**.
 
-## 🧙‍♂️ Storytelling du Projet
-Dans cet univers, les livres ne sont pas de simples objets, mais des entités magiques dotées de points de puissance. Nous modélisons les interactions entre des **Magiciens** et leurs **LivresMagiques** pour comprendre comment les objets collaborent entre eux.
+## 📂 Structure du Projet
 
-## 🚀 Objectifs Pédagogiques
-Ce projet suit une approche **eXtreme Programming (XP)** mettant l'accent sur :
-* **La Qualité du Code** : Utilisation de tests unitaires systématiques avec JUnit pour garantir la stabilité.
-* **La Barre Verte** : Chaque fonctionnalité est validée par un test automatique avant d'être intégrée.
-* **La Fixture (Setup)** : Optimisation des tests via l'enregistrement de scènes de référence via l'option "Bureau Objets --> Engagements".
+Le dépôt est organisé pour refléter la transition entre les deux semestres d'apprentissage :
 
-## 🛠️ Structure du Dépôt
-Le dépôt est organisé de manière à ne conserver que les fichiers sources essentiels :
-* `*.java` : Code source des classes `LivreMagique` et `Magicien` ainsi que leurs tests.
-* `package.bluej` : Fichier de configuration pour l'environnement BlueJ.
-* `Tutoriel Agilité 1 V1.0.pdf` : Guide pédagogique complet documentant le projet.
+* **`java/`** : Contient les sources (`.java`) et les fichiers de configuration BlueJ du premier semestre.
+* **`python/`** : Dossier principal du second semestre incluant le code métier et les tests.
+    * `magicien.py` & `livre_magique.py` : Classes principales.
+    * `features/` : Tests d'acceptation (User Stories) écrits en Gherkin/Behave.
+    * `tests/` : Tests unitaires robustes utilisant le framework `unittest`.
+* **Racine** : Contient le tutoriel de référence au format PDF.
 
-## ✅ État des Tests
-Toutes les méthodes (Enchantement, Collaboration Magicien-Livre) ont été testées avec succès.
-> **"La Barre Verte est le symbole de notre succès et de la stabilité de notre système."**
+## 📖 Tutoriel de Référence
+Pour comprendre la progression du projet, veuillez consulter la dernière version du document située à la racine : 
+👉 **`Tutoriel Agilité 1 V2.1.pdf`**
 
-## 👥 Auteurs
-* **Maxance Villame**
-* **Justine Rault**
-* **Université Paris Dauphine | PSL**
-* Date : 16/12/2025
+### Sommaire des points abordés :
+1.  **Fondamentaux POO** : Création de classes et méthodes sous BlueJ.
+2.  **Tests Automatisés** : Introduction à la "Barre Verte" et aux Fixtures.
+3.  **Migration Python** : Retranscription du code et usage de VS Code.
+4.  **Agilité & BDD** : Rédaction de User Stories avec Behave (Given/When/Then).
+5.  **Associations Complexes** : Implémentation d'une relation bidirectionnelle "0..1 à *" (un magicien peut posséder plusieurs livres).
+6.  **Qualité Logicielle** : Refactoring (Rename, Extract Method) et exécution des tests en ligne de commande.
 
-* Généré par l'IA Gimini
+
+
+## 🚀 Exécution des Tests (Ligne de commande)
+Depuis le dossier `python/` :
+* **Tests Unitaires** : `python -m unittest tests.test_magicien`
+* **Tests Fonctionnels** : `python -m behave`
+
+---
+
+### 🤖 Note sur l'IA
+Ce projet a bénéficié de la collaboration de **Gemini**, agissant en tant que partenaire de réflexion et assistant au développement (Pair Programming) pour l'aide à la retranscription en Python, et la rédaction de la documentation.
+
+---
+**Auteurs :** Maxance Villame & Justine Rault 
+**Université Paris Dauphine | PSL**
+**Date :** 16/12/2025

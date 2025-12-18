@@ -1,75 +1,49 @@
 class Quete:
     def __init__(self, titre: str):
-        self._titre = titre
-        self._xp = 0
+        self.titre = titre
+        self.xp = 0
+        self.recompense = None  
 
-        self._recompense = None  
-
-        self._joueur = None 
-        
     # ---------- Getters / Setters ----------
     def getTitre(self) -> str:
-        return self._titre
+        return self.titre
 
     def setTitre(self, titre: str) -> None:
-        self._titre = titre
+        self.titre = titre
 
     def getXp(self) -> int:
-        return self._xp
+        return self.xp
     
     def ajouterXp(self, xp_gagnes: int) -> None:
         if xp_gagnes > 0:
-            self._xp += xp_gagnes
+            self.xp += xp_gagnes
 
 
     # ---------- Recompense (bidirectionnel) ----------
     def getRecompense(self):
-        return self._recompense
+        return self.recompense
 
     def xpTotalAvecBonus(self) -> int:
-        return self._xp if self._recompense is None else self._xp + self._recompense.getBonusXp()
+        return self.xp if self.recompense is None else self.xp + self.recompense.getBonusXp()
 
     def attribuerRecompense(self, nouvelle) -> None:
-        if self._recompense is nouvelle:
+        if self.recompense is nouvelle:
             return
 
-        self._detacherRecompense()
-        self._attacherRecompense(nouvelle)
+        self.detacherRecompense()
+        self.attacherRecompense(nouvelle)
 
-    def _detacherRecompense(self) -> None:
-        if self._recompense is not None:
-            ancienne = self._recompense
-            self._recompense = None
+    def detacherRecompense(self) -> None:
+        if self.recompense is not None:
+            ancienne = self.recompense
+            self.recompense = None
             ancienne.setQueteInternal(None)
 
 
-    def _attacherRecompense(self, nouvelle) -> None:
-        self._recompense = nouvelle
+    def attacherRecompense(self, nouvelle) -> None:
+        self.recompense = nouvelle
         if nouvelle is not None:
             ancienne_quete = nouvelle.getQuete()
             if ancienne_quete is not None and ancienne_quete is not self:
                 ancienne_quete.attribuerRecompense(None)
             nouvelle.setQueteInternal(self)
-
-    # ---------- Joueur (0..1) <-> (*) (bidirectionnel) ----------
-    def getJoueur(self):
-        return self._joueur
-
-    def attribuerJoueur(self, nouveau) -> None:
-        if self._joueur is nouveau:
-            return
-
-        # 1) Détacher de l'ancien joueur
-        if self._joueur is not None:
-            ancien = self._joueur
-            self._joueur = None
-            ancien._retirerQueteInternal(self)
-
-        # 2) Attacher au nouveau joueur
-        self._joueur = nouveau
-        if nouveau is not None:
-            nouveau._ajouterQueteInternal(self)
-
-    # Méthode interne: utilisée par Joueur pour éviter boucles infinies
-    def setJoueurInternal(self, j) -> None:
-        self._joueur = j

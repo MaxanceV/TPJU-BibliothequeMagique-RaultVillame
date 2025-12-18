@@ -5,8 +5,8 @@ from livre_magique import LivreMagique
 @dataclass
 class Magicien:
     nom: str
-    # Maintenant c'est une liste de livres
     livres: List[LivreMagique] = field(default_factory=list, init=False)
+    puissance : int = field(default=10)  # Puissance de base
 
     def prendre_livre(self, nouveau_livre: LivreMagique):
         if nouveau_livre not in self.livres:
@@ -26,9 +26,12 @@ class Magicien:
         return sum(l.points_de_magie for l in self.livres)
 
     def calculer_puissance_totale(self) -> int:
-        puissance_base = 10
-        return puissance_base + self.somme_point_de_magie()
+        return self.puissance + self.somme_point_de_magie()
 
     def somme_point_de_magie(self):
         somme_magie_livre = sum(l.points_de_magie for l in self.livres)
         return somme_magie_livre
+    
+    def ajouter_puissance(self, amount: int) -> None:
+        if amount > 0:
+            self.puissance += amount

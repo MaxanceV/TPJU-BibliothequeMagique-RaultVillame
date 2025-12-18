@@ -35,3 +35,12 @@ class Magicien:
     def ajouter_puissance(self, amount: int) -> None:
         if amount > 0:
             self.puissance += amount
+
+    # Factory Method (peut être redéfinie)
+    def creer_livre(self, titre: str) -> LivreMagique:
+        return LivreMagique(titre, 10)
+
+    def invoquer_livre(self, titre: str) -> LivreMagique:
+        livre = self.creer_livre(titre)
+        self.prendre_livre(livre)
+        return livre

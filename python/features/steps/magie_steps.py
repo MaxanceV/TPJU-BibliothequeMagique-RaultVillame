@@ -7,9 +7,7 @@ def step_impl(context, nom):
     context.magicien = Magicien(nom)
 
 @given('un livre nommé {titre} avec {points:d} points de magie')
-@given('un livre nommé "{titre}" avec {points:d} points de magie')
 def step_impl(context, titre, points):
-    # Cette étape gère les deux formats (avec ou sans guillemets)
     context.livre = LivreMagique(titre, points)
 
 @when('{nom} prend le livre')

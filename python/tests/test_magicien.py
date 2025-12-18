@@ -36,3 +36,6 @@ class TestMagicienComplet(unittest.TestCase):
         # Nettoyage
         self.harry.livres.clear()
         self.voldemort.livres.clear()
+
+if __name__ == '__main__':
+    unittest.main()

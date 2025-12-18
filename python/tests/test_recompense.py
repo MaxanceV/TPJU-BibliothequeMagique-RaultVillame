@@ -1,7 +1,7 @@
 import unittest
 
-from Classe.Quete import Quete
-from Classe.Recompense import Recompense
+from quete import Quete
+from recompense import Recompense
 
 
 class TestRecompense(unittest.TestCase):

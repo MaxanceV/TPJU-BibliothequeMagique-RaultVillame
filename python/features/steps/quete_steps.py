@@ -1,6 +1,6 @@
 from behave import given, when, then
-from Classe.Quete import Quete
-from Classe.Recompense import Recompense
+from quete import Quete
+from recompense import Recompense
 
 
 @given('une quete "{titre}"')

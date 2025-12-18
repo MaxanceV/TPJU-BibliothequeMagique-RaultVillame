@@ -1,5 +1,5 @@
 from behave import given, then
-from Classe.Recompense import Recompense
+from recompense import Recompense
 
 
 @given('une récompense "{nom}" avec {bonus:d} XP')

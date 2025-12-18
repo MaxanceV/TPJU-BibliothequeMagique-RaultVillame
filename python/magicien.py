@@ -22,7 +22,13 @@ class Magicien:
             self.livres.remove(livre)
             livre.possesseur = None
 
+    def obtenir_somme_magie_livres(self) -> int:
+        return sum(l.points_de_magie for l in self.livres)
+
     def calculer_puissance_totale(self) -> int:
         puissance_base = 10
-        somme_magie_livres = sum(l.points_de_magie for l in self.livres)
-        return puissance_base + somme_magie_livres
+        return puissance_base + self.somme_point_de_magie()
+
+    def somme_point_de_magie(self):
+        somme_magie_livre = sum(l.points_de_magie for l in self.livres)
+        return somme_magie_livre

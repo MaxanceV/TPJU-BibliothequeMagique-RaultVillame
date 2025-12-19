@@ -8,12 +8,11 @@ from mission import Mission
 class TestMission(unittest.TestCase):
 
     def setUp(self):
-        # Arrange (commun)
         self.magicien = Magicien("Harry")
         self.magicien.puissance = 10
 
         self.quete = Quete("Sauver le village")
-        self.quete.ajouterXp(20)
+        self.quete.ajouter_xp(20)
 
         self.mission = Mission(self.magicien, self.quete)
 
@@ -25,9 +24,9 @@ class TestMission(unittest.TestCase):
         self.assertEqual(self.magicien.puissance, 30)
 
     def test_terminer_mission_ajoute_xp_avec_bonus(self):
-        # Arrange (spécifique)
+        # Arrange
         recompense = Recompense("Medaille", 5)
-        self.quete.attribuerRecompense(recompense)
+        self.quete.attribuer_recompense(recompense)
 
         # Act
         self.mission.terminer()
@@ -36,10 +35,10 @@ class TestMission(unittest.TestCase):
         self.assertEqual(self.magicien.puissance, 35)
 
     def test_terminer_mission_sans_xp_ne_change_pas_puissance(self):
-        # Arrange (spécifique)
+        # Arrange
         self.magicien.puissance = 10
-        self.quete = Quete("Explorer la grotte")  # nouvelle quête
-        self.quete.ajouterXp(0)
+        self.quete = Quete("Explorer la grotte")
+        self.quete.ajouter_xp(0)
         self.mission = Mission(self.magicien, self.quete)
 
         # Act

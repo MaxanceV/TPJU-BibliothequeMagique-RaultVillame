@@ -9,7 +9,6 @@ from livre_magique_de_feu import LivreMagiqueDeFeu
 class TestFactoryMethodLivre(unittest.TestCase):
 
     def setUp(self):
-        # Arrange (commun)
         self.magicien = Magicien("Gandalf")
         self.magicien_de_feu = MagicienDeFeu("Azar")
 

@@ -1,17 +1,16 @@
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from quete import Quete
+
+
+@dataclass
 class Recompense:
-    def __init__(self, nom: str, bonusXp: int):
-        self.nom = nom
-        self.bonusXP = bonusXp
-        self.quete = None
+    nom: str
+    bonus_xp: int
+    quete: Optional["Quete"] = None
 
-    def getNom(self) -> str:
-        return self.nom
-
-    def getBonusXp(self) -> int:
-        return self.bonusXP
-
-    def getQuete(self):
-        return self.quete
-
-    def setQueteInternal(self, q) -> None:
+    def set_quete_internal(self, q: Optional["Quete"]) -> None:
         self.quete = q

@@ -1,5 +1,4 @@
 from behave import given, when, then
-
 from quete import Quete
 from recompense import Recompense
 from mission import Mission
@@ -13,13 +12,13 @@ def step_impl(context, puissance_base):
 @given('une quête "{titre_quete}" avec {xp:d} xp')
 def step_impl(context, titre_quete, xp):
     context.quete = Quete(titre_quete)
-    context.quete.ajouterXp(xp)
+    context.quete.ajouter_xp(xp)
 
 
 @given('une récompense "{nom_recompense}" donnant {bonus:d} xp')
 def step_impl(context, nom_recompense, bonus):
     context.recompense = Recompense(nom_recompense, bonus)
-    context.quete.attribuerRecompense(context.recompense)
+    context.quete.attribuer_recompense(context.recompense)
 
 
 @when('le magicien termine la mission')

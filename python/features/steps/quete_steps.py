@@ -12,22 +12,22 @@ def step_impl(context, titre):
 def step_impl(context, titre, bonus):
     context.quete = Quete(titre)
     context.recompense = Recompense("Bonus", bonus)
-    context.quete.attribuerRecompense(context.recompense)
+    context.quete.attribuer_recompense(context.recompense)
 
 
 @when('j ajoute {points:d} points XP')
 def step_impl(context, points):
-    context.quete.ajouterXp(points)
+    context.quete.ajouter_xp(points)
 
 
 @then('le XP de la quete est {xp:d}')
 def step_impl(context, xp):
-    assert context.quete.getXp() == xp
+    assert context.quete.xp == xp
 
 
 @then('le XP total avec bonus est {xp:d}')
 def step_impl(context, xp):
-    assert context.quete.xpTotalAvecBonus() == xp
+    assert context.quete.xp_total_avec_bonus() == xp
 
 
 @given('deux quetes "{q1}" et "{q2}"')
@@ -43,19 +43,17 @@ def step_impl(context, nom, bonus):
 
 @when('j assigne la recompense a la quete "{titre}"')
 def step_impl(context, titre):
-    if context.q1.getTitre() == titre:
-        context.q1.attribuerRecompense(context.recompense)
-    else:
-        context.q2.attribuerRecompense(context.recompense)
+    quete = context.q1 if context.q1.titre == titre else context.q2
+    quete.attribuer_recompense(context.recompense)
 
 
 @then('la quete "{titre}" n a pas de recompense')
 def step_impl(context, titre):
-    quete = context.q1 if context.q1.getTitre() == titre else context.q2
-    assert quete.getRecompense() is None
+    quete = context.q1 if context.q1.titre == titre else context.q2
+    assert quete.recompense is None
 
 
 @then('la recompense appartient a la quete "{titre}"')
 def step_impl(context, titre):
-    quete = context.q1 if context.q1.getTitre() == titre else context.q2
-    assert context.recompense.getQuete() == quete
+    quete = context.q1 if context.q1.titre == titre else context.q2
+    assert context.recompense.quete == quete
